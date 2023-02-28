@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: dotnet-hello-xltv
+  namespace: eyuen-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload@sha256:d69643d28c7b900822fb6e0c5ad07f076f085a7c51547720497090dfc75bc35b
+        name: main
+        resources: {}
+status: {}
