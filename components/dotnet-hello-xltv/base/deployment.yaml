@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: dotnet-hello-xltv
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:-9AUA-dotnet-hello-xltv
+      - image: quay.io/redhat-appstudio/user-workload@sha256:d69643d28c7b900822fb6e0c5ad07f076f085a7c51547720497090dfc75bc35b
         imagePullPolicy: Always
         name: main
         ports:
