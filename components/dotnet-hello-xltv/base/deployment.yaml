@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: dotnet-hello-xltv
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dotnet-hello-xltv
+    app.kubernetes.io/part-of: my-app-dotnet
+  name: dotnet-hello-xltv
+  namespace: eyuen-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devfile-dotnet-deploy
+      app.kubernetes.io/instance: dotnet-hello-xltv
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: devfile-dotnet-deploy
+        app.kubernetes.io/instance: dotnet-hello-xltv
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:-9AUA-dotnet-hello-xltv
+        imagePullPolicy: Always
+        name: main
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 300Mi
+          requests:
+            cpu: 10m
+            memory: 100Mi
+status: {}
